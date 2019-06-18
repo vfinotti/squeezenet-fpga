@@ -1,4 +1,4 @@
 files = [
-    "sys_pll.vhd",
+    "xilinx_sys_pll.vhd",
 ]
 
