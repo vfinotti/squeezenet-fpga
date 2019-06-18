@@ -22,7 +22,7 @@ use UNISIM.vcomponents.all;
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity sys_pll is
+entity xilinx_sys_pll is
 generic(
   -- 200 MHz input clock
   g_clkin_period                            : real := 5.000;
@@ -46,9 +46,9 @@ port(
   clk2_o                                    : out std_logic;
   locked_o                                  : out std_logic
 );
-end sys_pll;
+end xilinx_sys_pll;
 
-architecture syn of sys_pll is
+architecture syn of xilinx_sys_pll is
 
   signal s_mmcm_fbin                        : std_logic;
   signal s_mmcm_fbout                       : std_logic;
@@ -59,7 +59,7 @@ architecture syn of sys_pll is
 begin
 
   -- Clock PLL
-  cmp_sys_pll : PLLE2_ADV
+  cmp_xilinx_sys_pll : PLLE2_ADV
    generic map (
       BANDWIDTH                             => "OPTIMIZED",  -- OPTIMIZED, HIGH, LOW
       CLKFBOUT_MULT                         => g_clkbout_mult_f,        -- Multiply value for all CLKOUT, (2-64)

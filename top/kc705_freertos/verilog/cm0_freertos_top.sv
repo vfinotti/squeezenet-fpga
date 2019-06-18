@@ -181,14 +181,14 @@ module cm0_freertos_top (
      .rst_n_o           ( rst_n          ) );
 
 
-   sys_pll #(
+   xilinx_sys_pll #(
      .g_clkin_period   ( 5.000      ),          // 200 MHz
      .g_divclk_divide  ( 1          ),
      .g_clkbout_mult_f ( 5          ),
      .g_clk0_divide_f  ( 100        ),          // 10 MHz
      .g_clk1_divide    ( 10         ),          // 100 MHz
      .g_clk2_divide    ( 100        ) )         // 10 MHz
-   sys_pll (
+   xilinx_sys_pll (
      .rst_i            ( 1'b0       ),
      .clk_i            ( clk_200mhz ),
      .clk0_o           ( clk_10mhz  ),
