@@ -79,7 +79,7 @@ architecture rtl of rl_ram_1r1w_generic is
   -- Function to evaluate if there is a init file mentioned and use
   -- InitRamFromFile if so
   impure function InitRam (RamFileName : in string) return RamType is
-    variable RAM         : RamType;
+    variable RAM : RamType;
   begin
     if RamFileName /= "" then
       RAM := InitRamFromFile(RamFileName);
@@ -89,7 +89,7 @@ architecture rtl of rl_ram_1r1w_generic is
     return RAM;
   end function;
 
-  signal RAM       : RamType := InitRam(INIT_FILE);
+  signal RAM : RamType := InitRam(INIT_FILE);
 
 
 begin  -- architecture rtl
