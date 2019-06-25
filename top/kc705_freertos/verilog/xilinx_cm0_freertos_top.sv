@@ -4,7 +4,7 @@
 // <project-url>
 ///////////////////////////////////////////////////////////////////////////////
 //
-// unit name:     ARM Cortex M-0 implementation on FPGA
+// unit name:     ARM Cortex M-0 implementation on FPGA (Xilinx)
 //
 // description:
 //
@@ -35,7 +35,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 
-module cm0_freertos_top (
+module xilinx_cm0_freertos_top (
   output led0,
   output led1,
   output led2,
@@ -202,7 +202,7 @@ module cm0_freertos_top (
      .HDATA_SIZE        ( 32               ),
      .TECHNOLOGY        ( "GENERIC"        ),
      .REGISTERED_OUTPUT ( "NO"             ),
-     .INIT_FILE         ( "../../../modules/memory/memory_freertos_blinky_sim.mem" ) )
+     .INIT_FILE         ( "../../../modules/memory/memory_freertos_blinky_syn.mem" ) )
    rom (
      .HRESETn           ( rst_n            ),
      .HCLK              ( clk_10mhz        ),
@@ -549,4 +549,4 @@ module cm0_freertos_top (
    assign mst_hready [0] = 1'b1; // Cortex M0 has no hreadyout
    assign mst_hsel   [0] = 1'b1; // Cortex M0 has no hsel
 
-endmodule // cm0_freertos_top
+endmodule // xilinx_cm0_freertos_top

@@ -1,6 +1,6 @@
 files = [
-    "cm0_freertos_top.sv",
-    "../cm0_freertos_top.xdc",
+    "xilinx_cm0_freertos_top.sv",
+    "../xilinx_cm0_freertos_top.xdc",
     "../../../ip_cores/roa_logic/ahb3lite_interconnect/rtl/verilog/ahb3lite_interconnect_master_port.sv",
     "../../../ip_cores/roa_logic/ahb3lite_interconnect/rtl/verilog/ahb3lite_interconnect_slave_port.sv",
     "../../../ip_cores/roa_logic/ahb3lite_interconnect/rtl/verilog/ahb3lite_interconnect.sv",
