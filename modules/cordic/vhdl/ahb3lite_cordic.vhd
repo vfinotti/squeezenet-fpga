@@ -146,7 +146,7 @@ begin  -- architecture rtl
 
   -- Data phase data transfer
   data_phase : process (hclk_i, hreset_n_i) is
-    variable addr : integer range 0 to 28; -- offset in memory, considering
+    variable addr : integer range 0 to 31; -- offset in memory, considering
                                            -- each reg have 4 bytes
   begin
     -- only last 5 bits are used for addressing
@@ -187,7 +187,7 @@ begin  -- architecture rtl
   -- inputs : all
   -- outputs:
   process (haddr_i) is
-    variable addr : integer range 0 to 28; -- offset in memory, considering
+    variable addr : integer range 0 to 31; -- offset in memory, considering
                                            -- each reg have 4 bytes
   begin  -- process
     -- only last 5 bits are used for addressing
