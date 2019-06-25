@@ -52,7 +52,7 @@ entity rl_ram_1r1w_generic is
     din_i   : in  std_logic_vector(DBITS-1 downto 0);
     we_i    : in  std_logic;
     be_i    : in  std_logic_vector((DBITS+7)/8-1 downto 0);
-    raddr_i : in  std_logic_vector(DBITS-1 downto 0);
+    raddr_i : in  std_logic_vector(ABITS-1 downto 0);
     dout_o  : out std_logic_vector(DBITS-1 downto 0));
 
 end entity rl_ram_1r1w_generic;
