@@ -52,7 +52,7 @@ entity rl_ram_1r1w_generic is
     din_i   : in  std_logic_vector(DBITS-1 downto 0);
     we_i    : in  std_logic;
     be_i    : in  std_logic_vector((DBITS+7)/8-1 downto 0);
-    raddr_i : in  std_logic_vector(DBITS-1 downto 0);
+    raddr_i : in  std_logic_vector(ABITS-1 downto 0);
     dout_o  : out std_logic_vector(DBITS-1 downto 0));
 
 end entity rl_ram_1r1w_generic;
@@ -68,8 +68,10 @@ architecture rtl of rl_ram_1r1w_generic is
     variable RAM         : RamType;
   begin
     for I in RamType'range loop
-      readline(RamFile, RamFileLine);
-      read(RamFileLine, RAM(I));
+      if not endfile(RamFile) then
+        readline(RamFile, RamFileLine);
+        read(RamFileLine, RAM(I));
+      end if;
     end loop;
     return RAM;
   end function;
@@ -77,7 +79,7 @@ architecture rtl of rl_ram_1r1w_generic is
   -- Function to evaluate if there is a init file mentioned and use
   -- InitRamFromFile if so
   impure function InitRam (RamFileName : in string) return RamType is
-    variable RAM         : RamType;
+    variable RAM : RamType;
   begin
     if RamFileName /= "" then
       RAM := InitRamFromFile(RamFileName);
@@ -87,7 +89,7 @@ architecture rtl of rl_ram_1r1w_generic is
     return RAM;
   end function;
 
-  signal RAM       : RamType := InitRam(INIT_FILE);
+  signal RAM : RamType := InitRam(INIT_FILE);
 
 
 begin  -- architecture rtl
