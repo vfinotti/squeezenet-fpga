@@ -68,8 +68,10 @@ architecture rtl of rl_ram_1r1w_generic is
     variable RAM         : RamType;
   begin
     for I in RamType'range loop
-      readline(RamFile, RamFileLine);
-      read(RamFileLine, RAM(I));
+      if not endfile(RamFile) then
+        readline(RamFile, RamFileLine);
+        read(RamFileLine, RAM(I));
+      end if;
     end loop;
     return RAM;
   end function;
